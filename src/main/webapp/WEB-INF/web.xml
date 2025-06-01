@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <context-param>
+        <param-name>jdbc_driver_name</param-name>
+        <param-value>org.h2.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db_url</param-name>
+        <param-value>jdbc:h2:tcp://localhost/~/test</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db_username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db_password</param-name>
+        <param-value></param-value>
+    </context-param>
+    <resource-ref>
+        <description>DBCP resource</description>
+        <res-ref-name>jdbc/h2_test</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+    <context-param>
+        <param-name>dbcp_resource_name</param-name>
+        <param-value>jdbc/h2_test</param-value>
+    </context-param>
+    <listener>
+        <listener-class>com.example.work03personalitytest.listener.MyServletContextListener</listener-class>
+    </listener>
+</web-app>
